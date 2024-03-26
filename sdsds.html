@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ESP Input Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center; /* Added */
+        }
+     
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function submitMessage() {
+            alert("Saved value to ESP SPIFFS");
+            setTimeout(function () { document.location.reload(false); }, 500);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+    <form action="/get" target="hidden-form">
+        <label for="inputString">Input Your Name:</label>
+        <input type="text" name="inputString">
+        <label for="inputInt">Input the Counter Number</label>
+        <input type="number" name="inputInt" min="1" max="9">
+        <input type="submit" value="Submit" onclick="submitMessage()">
+    </form>
+    <br>
+</div>
+
+    <iframe style="display:none" name="hidden-form"></iframe>
+</body>
+
+</html>
